@@ -1,0 +1,11 @@
+#Options +FollowSymLinks -MultiViews
+
+#Redirect /foobar/ https://example.com
+#deny from all
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ process.php?url=$1 [QSA,L]
+
+#RewriteRule ^([a-zA-Z0-9-z\-]+)$ index.php?q=$1
